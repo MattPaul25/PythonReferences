@@ -1,3 +1,6 @@
+import urllib2
+import json
+
 def printResults(data):
 	theJSON = json.loads(data)
 	if "title" in theJSON["metadata"]:
