@@ -1,15 +1,7 @@
-#working with JSON#
-try:
-    import urllib.request as urllib2
-except:
-    import urllib2
-import json
-
-def printResults(WebUrl):
-	theJSON = json.load(WebUrl)
+def printResults(data):
+	theJSON = json.loads(data)
 	if "title" in theJSON["metadata"]:
 		print (theJSON["title"])
-		print (theJSON["metadata"])
 
 def main():
 	#define a variable to hold the source URL
@@ -23,7 +15,7 @@ def main():
 	print (WebUrl.getcode())
 	if (WebUrl.getcode() == 200):
 		data = WebUrl.read()
-		printResults(WebUrl)
+		printResults(data)
 	else:
 		print ("Received an error from server, cannot retrieve results " + str(WebUrl.getcode()))
 
